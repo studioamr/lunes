@@ -256,6 +256,103 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;border-radius:50%;bac
 .pill .btn{min-height:44px;padding:0 18px;font-size:14px;white-space:nowrap}
 @media(max-width:480px){.dias span{width:17px;height:17px;font-size:9px}.dias{gap:3px}}
 
+/* Teléfono: interfaz de la app */
+.fono{padding:40px 14px 10px;gap:9px;overflow:hidden}
+.ap-top{display:flex;justify-content:space-between;align-items:center}
+.ap-top small{display:block;font:500 10px var(--mono);letter-spacing:.1em;color:var(--gris)}
+.ap-top b{font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.chipr{display:inline-flex;align-items:center;gap:5px;background:var(--mantequilla);border-radius:99px;padding:6px 10px;font-weight:700;font-size:12px}
+.chipr svg{width:14px;height:14px}
+.fono .seg button{min-height:38px;font-size:14px}
+.sem7{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.sem7 span{aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font:700 11px var(--mono);background:var(--papel-2);color:var(--gris)}
+.sem7 .ok{background:var(--hoja);color:var(--blanco)}
+.sem7 .hoy{background:var(--tinta);color:var(--mantequilla);outline:2px solid var(--mandarina);outline-offset:2px}
+.hoycard{position:relative;border-radius:18px;overflow:hidden;height:128px;flex:none;background:var(--papel-2);color:var(--tinta)}
+.hoycard img{position:absolute;right:0;top:0;width:128px;height:128px;object-fit:cover;animation:entra .35s both}
+.hoycard>div{position:relative;padding:14px;display:flex;flex-direction:column;gap:3px;height:100%;justify-content:flex-end;max-width:62%}
+.hoycard small{font:500 10px var(--mono);letter-spacing:.1em;color:var(--gris)}
+.fono .hoycard h3{font-size:38px;line-height:.86}
+.fono .sub{font-size:12px;line-height:1.25}
+.fono .ej{border-top:0;flex:1;min-height:0;overflow:hidden;-webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
+.fono .ej li{padding:6px 0;font-size:14px;font-weight:700;line-height:1.15}
+.ej img{width:44px;height:44px;border-radius:11px;object-fit:cover;flex:none;background:var(--papel-2)}
+.ej small{display:block;font:500 10px var(--mono);letter-spacing:.06em;color:var(--gris);margin-top:2px}
+.fono .btn{min-height:48px;font-size:16px;margin-top:0}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);padding-top:6px;border-top:1px solid var(--papel-2)}
+.tabs span{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;font-weight:500;color:var(--gris)}
+.tabs svg{width:20px;height:20px}
+.tabs .on{color:var(--tinta);font-weight:800}
+
+/* La app por dentro: cuatro pantallas */
+.adentro{overflow:hidden}
+.tels{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:56px;padding:0 var(--gut-r) 24px var(--gut);scrollbar-width:none}
+.tels::-webkit-scrollbar{display:none}
+@media(min-width:1260px){.tels{justify-content:center}}
+.tel-w{margin:0;flex:none;scroll-snap-align:center;display:flex;flex-direction:column;gap:16px;width:270px}
+.tel-w:nth-child(2){--i:1}.tel-w:nth-child(3){--i:2}.tel-w:nth-child(4){--i:3}
+.tel-w figcaption{font-size:14px;color:var(--gris-claro);display:flex;flex-direction:column;gap:2px}
+.tel-w figcaption b{font-size:18px;color:var(--papel);letter-spacing:-.02em}
+.tel{position:relative;width:270px;height:560px;border:8px solid #3A332B;border-radius:42px;overflow:hidden;display:flex;flex-direction:column;font-size:13px;line-height:1.3;box-shadow:0 40px 70px -30px #000}
+.tel::before{content:"";position:absolute;z-index:3;top:9px;left:50%;width:70px;height:18px;margin-left:-35px;border-radius:20px;background:#000}
+.tel.osc{background:var(--tinta-2);color:var(--papel)}
+.tel.cla{background:var(--papel);color:var(--tinta)}
+.tel .pad{padding:38px 15px 15px;display:flex;flex-direction:column;gap:10px;flex:1;min-height:0}
+.t-top{display:flex;justify-content:space-between;align-items:center;font:500 11px var(--mono);letter-spacing:.06em}
+.t-top .x{opacity:.6}
+.t-foto{width:100%;height:150px;object-fit:cover;object-position:50% 30%;border-radius:16px}
+.t-h{display:block;font-weight:800;font-size:26px;letter-spacing:-.035em;line-height:1}
+.t-dim{display:block;font-size:12px;opacity:.65;margin-top:3px}
+.t-series{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.t-series i{height:6px;border-radius:6px;background:#4A4238}
+.t-series i.on{background:var(--mantequilla)}
+.t-reps{display:flex;align-items:center;gap:12px}
+.t-reps b{font:800 84px/.8 var(--display);letter-spacing:-.06em;color:var(--mantequilla)}
+.t-reps span{font-size:13px;opacity:.75}
+.t-rest{display:flex;align-items:center;gap:10px;background:#2E2721;border-radius:16px;padding:9px;margin-top:auto}
+.t-rest>div{flex:1;min-width:0}
+.t-rest img{width:42px;height:42px;border-radius:10px;object-fit:cover}
+.ring{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;background:radial-gradient(#2E2721 58%,transparent 60%),conic-gradient(var(--mandarina) 62%,#4A4238 0)}
+.ring b{font:700 11px var(--mono)}
+.t-btn{display:grid;place-items:center;min-height:44px;border-radius:99px;background:var(--mantequilla);color:var(--tinta);font-weight:800;font-size:14px;margin-top:auto}
+.t-rest+.t-btn{margin-top:0}
+.chip-s{background:var(--tinta);color:var(--papel);border-radius:99px;padding:5px 11px;font:700 11px var(--display);letter-spacing:0}
+.t-pres{background:var(--hoja);color:var(--blanco);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:4px;font-size:11px}
+.t-pres b{font:700 26px/1 var(--mono);letter-spacing:-.04em}
+.t-pres b small{font-size:12px;font-weight:500;opacity:.8}
+.t-pres i{height:6px;border-radius:6px;background:rgba(255,253,248,.25);overflow:hidden;margin:3px 0}
+.t-pres u{display:block;height:100%;background:var(--mantequilla)}
+.t-grp{font:500 10px var(--mono);letter-spacing:.1em;color:var(--gris);margin-top:2px}
+.t-list{list-style:none;margin:-4px 0 0;padding:0}
+.t-list li{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--papel-2);font-size:12.5px}
+.t-list li i{width:17px;height:17px;border-radius:5px;border:1.5px solid var(--gris);flex:none;display:grid;place-items:center}
+.t-list li.ok i{background:var(--hoja);border-color:var(--hoja);color:var(--blanco)}
+.t-list li.ok span{text-decoration:line-through;color:var(--gris)}
+.t-list li svg{width:12px;height:12px}
+.t-list b{margin-left:auto;font:700 12px var(--mono)}
+.t-hero{width:100%;height:190px;object-fit:cover;flex:none}
+.t-chips{display:flex;gap:5px;flex-wrap:wrap}
+.t-chips span{background:var(--tinta);color:var(--papel);border-radius:99px;padding:4px 9px;font:500 10px var(--mono)}
+.t-chips span:first-child{background:var(--mandarina);color:var(--tinta);font-weight:700}
+.t-ing{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.t-ing span{background:var(--blanco);border-radius:10px;padding:6px 9px;font-size:11.5px;display:flex;flex-direction:column}
+.t-ing b{font:700 12px var(--mono)}
+.t-pasos{margin:0;padding:0;list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:4px;font-size:12.5px}
+.t-pasos li{display:flex;gap:8px;counter-increment:q}
+.t-pasos li::before{content:counter(q);font:italic 400 18px/.9 var(--serif);color:var(--mandarina)}
+.t-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.t-cal i,.t-ley i{aspect-ratio:1;border-radius:7px;background:#3A332B}
+.t-cal .e,.t-ley .e{background:var(--mandarina)}.t-cal .d,.t-ley .d{background:#5B5246}.t-cal .m,.t-ley .m{background:var(--mantequilla)}
+.t-ley{display:flex;gap:10px;font-size:10px;opacity:.85}
+.t-ley span{display:flex;align-items:center;gap:4px}.t-ley i{width:9px;border-radius:3px}
+.t-bars{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;height:84px;align-items:end}
+.t-bars i{background:#5B5246;border-radius:8px 8px 3px 3px;position:relative}
+.t-bars i.hoy{background:var(--mantequilla)}
+.t-bars b{position:absolute;top:-16px;left:0;right:0;text-align:center;font:700 10px var(--mono)}
+.t-pr{display:flex;justify-content:space-between;border-top:1px solid #3A332B;padding-top:7px;font-size:12px}
+.t-pr b{font:700 11px var(--mono);color:var(--mantequilla)}
+.fx .tel-w{transform:translateY(calc((1 - var(--ad,1))*(70px + var(--i,0)*55px))) rotate(calc((1 - var(--ad,1))*(var(--i,0) - 1.5)*4deg))}
+
 /* Efectos por scroll: el JS solo escribe variables (0 a 1) y el CSS hace la cuenta.
    Sin JS o con movimiento reducido, cada variable vale 1 = estado final. */
 .fx .hero h1{transform:translateY(calc(var(--hero,0)*-7vh)) scale(calc(1 - var(--hero,0)*.14));opacity:calc(1 - var(--hero,0)*1.15)}
@@ -275,7 +372,7 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;border-radius:50%;bac
   .fx .lunes .wrap{position:sticky;top:0;height:100vh;max-width:none;overflow:hidden;display:flex;flex-direction:column;align-items:center;padding-top:26px}
   .fx .lunes .wrap::before{content:"";position:absolute;inset:0;background:var(--azul);-webkit-mask-image:radial-gradient(circle at 50% 58%,#000 calc(var(--ink,1)*125vmax - 9vmax),transparent calc(var(--ink,1)*125vmax));mask-image:radial-gradient(circle at 50% 58%,#000 calc(var(--ink,1)*125vmax - 9vmax),transparent calc(var(--ink,1)*125vmax))}
   .fx .lunes .eyebrow{position:relative;z-index:1;align-self:stretch;opacity:var(--ink,1)}
-  .fx .lunes h2{position:relative;z-index:1;font-size:clamp(40px,5.4vw,84px);margin-top:14px;opacity:var(--ink,1);transform:translateY(calc((1 - var(--ink,1))*40px))}
+  .fx .lunes h2{position:relative;z-index:1;max-width:calc(100% - 32px);text-align:center;font-size:clamp(40px,5.2vw,80px);margin-top:14px;opacity:var(--ink,1);transform:translateY(calc((1 - var(--ink,1))*40px))}
   .fx .lunes .arena{position:static;min-height:0;margin:0;display:block}
   .fx .lunes .reloj{z-index:0;opacity:var(--ink,1);transform:scale(calc(1.4 - .4*var(--ink,1)))}
   .fx .lunes .fono{position:absolute;z-index:2;left:50%;bottom:86px;margin-left:-160px;width:320px;transform-origin:50% 100%;
@@ -387,15 +484,21 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;border-radius:50%;bac
     <div class="arena">
       <div class="reloj" id="reloj" aria-hidden="true">32:00</div>
       <div class="fono">
+        <div class="ap-top"><div><small>LUNES · SEMANA 4</small><b>Buenos días</b></div><span class="chipr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"/></svg>4 semanas</span></div>
         <div class="seg" role="group" aria-label="Dónde entrenas hoy">
           <button type="button" id="m-casa" data-m="casa" aria-pressed="true">En casa</button>
           <button type="button" id="m-gym" data-m="gym" aria-pressed="false">En gym</button>
         </div>
-        <span class="mono" style="font-size:11px;letter-spacing:.1em;color:var(--gris)">LUNES · SEMANA 1</span>
-        <h3>Hoy:<br>pierna</h3>
-        <span class="sub" id="f-sub">32 min · 5 ejercicios · sin equipo</span>
+        <div class="sem7" aria-hidden="true"><span class="ok">D</span><span class="hoy">L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span></div>
+        <div class="hoycard"><img id="f-foto" src="img/e1.jpg" alt="" width="340" height="340"><div><small>HOY TOCA</small><h3>Pierna</h3><span class="sub" id="f-sub">32 min · 5 ejercicios · sin equipo</span></div></div>
         <ul class="ej" id="f-lista"></ul>
-        <a class="btn" href="#empezar">Empezar</a>
+        <a class="btn" href="#empezar">Empezar rutina</a>
+        <div class="tabs" aria-hidden="true">
+          <span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9v6M6 6v12M18 6v12M21 9v6M6 12h12"/></svg>Hoy</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h2l2 11h10l2-8H7"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>Súper</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></svg>Recetas</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 20V11M12 20V5M19 20v-6"/></svg>Progreso</span>
+        </div>
       </div>
     </div>
     <div class="notas">
@@ -405,9 +508,58 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;border-radius:50%;bac
   </div>
 </section>
 
+<section class="band adentro" id="app">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--gris-claro)"><span>La app por dentro</span><span>Capítulo 04</span></div>
+    <h2 style="margin-top:20px">Cuatro pantallas. <em class="s">Toda tu semana.</em></h2>
+    <p class="lead" style="margin-top:20px;color:var(--gris-claro)">Así se ve LUNES cuando ya la estás usando: te guía serie por serie, te lleva la cuenta en el súper, te enseña la receta en una imagen y te muestra cuánto llevas.</p>
+  </div>
+  <div class="tels">
+    <figure class="tel-w"><div class="tel osc"><div class="pad">
+      <div class="t-top"><span>Pierna · 1 de 5</span><span class="x">Salir</span></div>
+      <img class="t-foto" src="img/e1.jpg" alt="Mujer haciendo una sentadilla en casa" loading="lazy">
+      <div><b class="t-h">Sentadilla</b><span class="t-dim">Serie 2 de 4</span></div>
+      <div class="t-series"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+      <div class="t-reps"><b>15</b><span>repeticiones<br>a tu ritmo</span></div>
+      <div class="t-rest"><span class="ring"><b>0:45</b></span><div><b>Descanso</b><span class="t-dim">Sigue: Zancada alterna</span></div><img src="img/e2.jpg" alt="" loading="lazy"></div>
+      <span class="t-btn">Serie hecha</span>
+    </div></div><figcaption><b>Rutina guiada</b>Serie por serie, con descansos.</figcaption></figure>
+
+    <figure class="tel-w"><div class="tel cla"><div class="pad">
+      <div class="t-top"><b class="t-h" style="font-size:22px">Mi súper</b><span class="chip-s">Walmart</span></div>
+      <div class="t-pres"><span>Llevas</span><b>$799 <small>de $800</small></b><i><u style="width:99%"></u></i><span>21 comidas · $38 cada una</span></div>
+      <small class="t-grp">PROTEÍNA</small><ul class="t-list"><li class="ok"><i><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M4 9l3.5 3.5L14 5"/></svg></i><span>Pechuga de pollo 1 kg</span><b>$119</b></li><li class="ok"><i><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M4 9l3.5 3.5L14 5"/></svg></i><span>Huevo 30 piezas</span><b>$89</b></li><li class=""><i></i><span>Atún en agua 4 latas</span><b>$72</b></li></ul>
+      <small class="t-grp">GRANOS</small><ul class="t-list"><li class="ok"><i><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M4 9l3.5 3.5L14 5"/></svg></i><span>Arroz 1 kg</span><b>$32</b></li><li class=""><i></i><span>Frijol negro 1 kg</span><b>$38</b></li><li class=""><i></i><span>Avena 1 kg</span><b>$45</b></li></ul>
+      <small class="t-grp">VERDURA</small><ul class="t-list"><li class=""><i></i><span>Calabacita 1 kg</span><b>$28</b></li><li class=""><i></i><span>Brócoli 2 piezas</span><b>$40</b></li></ul>
+      <span class="t-btn" style="background:var(--tinta);color:var(--papel)">3 de 13 en el carrito</span>
+    </div></div><figcaption><b>Tu súper</b>La lista con precios y tu tope.</figcaption></figure>
+
+    <figure class="tel-w"><div class="tel cla"><img class="t-hero" src="img/pollo.jpg" alt="Plato de pollo con arroz y calabacita" loading="lazy"><div class="pad" style="padding-top:12px">
+      <div class="t-chips"><span>$31 porción</span><span>42 g proteína</span><span>25 min</span></div>
+      <b class="t-h">Pollo, arroz y calabacita</b>
+      <small class="t-grp">PARA 5 TÓPERS</small>
+      <div class="t-ing"><span>Pechuga<b>750 g</b></span><span>Arroz<b>500 g</b></span><span>Calabacita<b>600 g</b></span><span>Ajo y limón<b>al gusto</b></span></div>
+      <ol class="t-pasos"><li>Cuece el arroz con sal.</li><li>Sella el pollo 6 min por lado.</li><li>Saltea la calabacita 4 min.</li></ol>
+      <span class="t-btn">Ya la cociné</span>
+    </div></div><figcaption><b>Receta en imagen</b>Sin video. Cuatro pasos.</figcaption></figure>
+
+    <figure class="tel-w"><div class="tel osc"><div class="pad">
+      <div class="t-top"><span>Tu progreso</span><span class="x">Noviembre</span></div>
+      <div class="t-reps" style="align-items:flex-end"><b>4</b><span>semanas<br>seguidas</span></div>
+      <div class="t-cal"><i class="m"></i><i class="e"></i><i class="e"></i><i class="d"></i><i class="e"></i><i class="e"></i><i class="d"></i><i class="m"></i><i class="e"></i><i class="d"></i><i class="e"></i><i class="e"></i><i class="d"></i><i class="d"></i><i class="m"></i><i class="e"></i><i class="e"></i><i class="e"></i><i class="d"></i><i class="e"></i><i class="d"></i><i class="m"></i><i class="e"></i><i class="."></i><i class="."></i><i class="."></i><i class="."></i><i class="."></i></div>
+      <div class="t-ley"><span><i class="e"></i>Entreno</span><span><i class="d"></i>Descanso</span><span><i class="m"></i>Meal prep</span></div>
+      <small class="t-grp" style="color:var(--gris-claro)">MINUTOS POR SEMANA</small>
+      <div class="t-bars"><i style="height:52%"><b>96</b></i><i style="height:70%"><b>128</b></i><i style="height:82%"><b>150</b></i><i class="hoy" style="height:30%"><b>32</b></i></div>
+      <div class="t-pr"><span>Sentadilla</span><b>4×12 → 4×15</b></div>
+      <div class="t-pr"><span>Plancha</span><b>30 s → 40 s</b></div>
+    </div></div><figcaption><b>Tu progreso</b>Racha, minutos y mejoras.</figcaption></figure>
+  </div>
+  <p class="wrap mono" style="margin-top:8px;font-size:12px;color:var(--gris-claro)">Pantallas de diseño con datos de ejemplo.</p>
+</section>
+
 <section class="band sheet mie">
   <div class="wrap">
-    <div class="eyebrow"><span>Miércoles · No lo sueltas</span><span>Capítulo 04</span></div>
+    <div class="eyebrow"><span>Miércoles · No lo sueltas</span><span>Capítulo 05</span></div>
     <h2>Empieza como un lunes. <em class="s">Casi nunca se queda ahí.</em></h2>
     <p class="lead">Sin promesas de kilos ni de fechas. Solo lo que suele pasar cuando la semana ya viene armada.</p>
     <ol class="pasa">
@@ -425,7 +577,7 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;border-radius:50%;bac
 
 <section class="band vie" id="coach">
   <div class="wrap">
-    <div class="eyebrow"><span>Viernes · Tu coach</span><span>Capítulo 05</span></div>
+    <div class="eyebrow"><span>Viernes · Tu coach</span><span>Capítulo 06</span></div>
     <h2>¿Lo quieres hecho <em class="s">solo para ti?</em></h2>
     <div class="coach">
       <div class="pasos">
@@ -445,7 +597,7 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;border-radius:50%;bac
 
 <section class="band planes" id="planes">
   <div class="wrap">
-    <div class="eyebrow" style="color:var(--gris-claro)"><span>Planes</span><span>Capítulo 06</span></div>
+    <div class="eyebrow" style="color:var(--gris-claro)"><span>Planes</span><span>Capítulo 07</span></div>
     <h2 style="margin-top:20px">Empieza con lo que <em class="s">necesites.</em></h2>
     <div class="grid3">
       <div class="plan"><h3>Básico</h3><div class="precio">$99<small> al mes</small></div><ul>
@@ -509,7 +661,7 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;border-radius:50%;bac
     var put=function(el,k,v){v=Math.round(v*1000)/1000;var m=el._v||(el._v={});if(m[k]!==v){m[k]=v;el.style.setProperty(k,v)}};
     var reg=function(sel,k,a,b){document.querySelectorAll(sel).forEach(function(el){regs.push({el:el,k:k,a:a,b:b,top:0})})};
     reg('.sheet','--s',-1,-.3); reg('.pasa li','--rp',-.95,-.55); reg('.ticket','--tk',-1,-.45);
-    reg('.deck','--deck',-.95,-.35); reg('.grid3','--pl',-.95,-.5); reg('.chat','--ch',-1,-.5);
+    reg('.deck','--deck',-.95,-.35); reg('.tels','--ad',-.95,-.35); reg('.grid3','--pl',-.95,-.5); reg('.chat','--ch',-1,-.5);
     var mide=function(){
       vh=innerHeight;
       regs.forEach(function(r){r.top=docTop(r.el)});
@@ -612,17 +764,16 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;border-radius:50%;bac
   })});
 
   /* Rutina casa / gym */
-  var ICO='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9v6M6 6v12M18 6v12M21 9v6M6 12h12"/></svg>';
-  var ICO_C='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v6M7 11h10M12 14l-4 7M12 14l4 7"/></svg>';
   var RUT={
-    casa:{sub:'32 min · 5 ejercicios · sin equipo',min:32,ico:ICO_C,ej:[['Sentadilla','4×15'],['Zancada alterna','3×12'],['Puente de glúteo','4×20'],['Búlgara en silla','3×10'],['Elevación de talón','3×25']]},
-    gym:{sub:'48 min · 5 ejercicios · barra y máquinas',min:48,ico:ICO,ej:[['Sentadilla con barra','4×8'],['Prensa','3×12'],['Peso muerto rumano','3×10'],['Extensión de cuádriceps','3×15'],['Curl femoral','3×12']]}
+    casa:{sub:'32 min · 5 ejercicios · sin equipo',min:32,foto:'e1',ej:[['Sentadilla','4×15','e1','CUÁDRICEPS · GLÚTEO'],['Zancada alterna','3×12','e2','PIERNA COMPLETA'],['Puente de glúteo','4×20','e3','GLÚTEO'],['Búlgara en silla','3×10','e4','CUÁDRICEPS'],['Elevación de talón','3×25','e5','PANTORRILLA']]},
+    gym:{sub:'48 min · 4 ejercicios · barra y máquinas',min:48,foto:'e6',ej:[['Sentadilla con barra','4×8','e6','CUÁDRICEPS · GLÚTEO'],['Prensa','4×12','e7','PIERNA COMPLETA'],['Peso muerto rumano','3×10','e8','FEMORAL · GLÚTEO'],['Curl femoral','3×12','e9','FEMORAL']]}
   };
   var seg=0, timer;
   function rutina(m){
     var r=RUT[m];
     $('f-sub').textContent=r.sub;
-    $('f-lista').innerHTML=r.ej.map(function(e,i){return '<li style="animation-delay:'+(i*50)+'ms">'+r.ico+'<span>'+e[0]+'</span><b>'+e[1]+'</b></li>'}).join('');
+    var f=$('f-foto'); f.src='img/'+r.foto+'.jpg'; f.style.animation='none'; f.offsetWidth; f.style.animation='';
+    $('f-lista').innerHTML=r.ej.map(function(e,i){return '<li style="animation-delay:'+(i*50)+'ms"><img src="img/'+e[2]+'.jpg" alt=""><span>'+e[0]+'<small>'+e[3]+'</small></span><b>'+e[1]+'</b></li>'}).join('');
     $('m-casa').setAttribute('aria-pressed',m==='casa'); $('m-gym').setAttribute('aria-pressed',m==='gym');
     seg=r.min*60; reloj();
   }
