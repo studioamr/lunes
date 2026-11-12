@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Rutinas en casa y en gym, y el meal prep de toda tu semana armado con tu presupuesto y los precios de tu súper.">
+<meta name="theme-color" content="#15120F">
+<meta property="og:title" content="LUNES · El lunes es hoy">
+<meta property="og:description" content="Rutinas en casa y en gym, y el meal prep de toda tu semana armado con tu presupuesto y los precios de tu súper.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://studioamr.github.io/lunes/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect width='34' height='34' rx='9' fill='%23FFD23F'/%3E%3Cpath d='M11 8v18h13' fill='none' stroke='%2315120F' stroke-width='5'/%3E%3Ccircle cx='25' cy='10' r='3' fill='%23FF6B2C'/%3E%3C/svg%3E">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>LUNES</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Concepto: la página ES una semana. Se baja de domingo (armas) a lunes (entrenas) a viernes (coach).
+   Cada día es una banda de color; un solo sistema tipográfico las une. Look único, sin tema alterno. */
+:root{
+  color-scheme: dark;
+  --tinta:#15120F; --tinta-2:#221D18; --papel:#F6F1E7; --papel-2:#E9E1D2; --blanco:#FFFDF8;
+  --azul:#2340E8; --azul-2:#1A31BF; --mandarina:#FF6B2C; --mantequilla:#FFD23F; --hoja:#1F6B45;
+  --gris:#6A6257; --gris-claro:#C9C0B1;
+  --display:"Bricolage Grotesque","Arial Narrow",Arial,sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --gut:max(clamp(16px,4vw,56px), env(safe-area-inset-left, 0px));
+  --gut-r:max(clamp(16px,4vw,56px), env(safe-area-inset-right, 0px));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--tinta);color:var(--papel);font-family:var(--display);font-size:17px;line-height:1.5;overflow-x:clip}
+.wrap{max-width:1240px;margin-inline:auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+h1,h2,h3,p{margin:0}
+h1,h2{font-weight:800;text-transform:uppercase;letter-spacing:-0.035em;line-height:.9;text-wrap:balance;font-variation-settings:"opsz" 96}
+h2{font-size:clamp(40px,7.4vw,104px)}
+em.s{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:-0.01em}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{display:flex;justify-content:space-between;gap:16px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.lead{font-size:clamp(17px,1.6vw,21px);max-width:52ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mantequilla);outline-offset:3px}
+.band{padding-block:clamp(72px,10vw,140px)}
+.sheet{border-radius:clamp(20px,3vw,40px) clamp(20px,3vw,40px) 0 0;margin-top:-36px;position:relative}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;border:0;background:var(--mantequilla);color:var(--tinta);font:700 16px var(--display);text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--blanco)}
+
+/* Loader: solo CSS, se quita solo */
+/* Intro: una agenda se abre y la cámara entra por la página. El fondo tiene un hueco (máscara) del tamaño
+   del libro, así el hero se ve a través; al final el hueco crece hasta llenar la pantalla. */
+.loader{--bw:min(52vw,250px);position:fixed;inset:0;z-index:50;display:grid;place-items:center;perspective:1400px;pointer-events:none;animation:loaderOut .01s 2.8s forwards}
+.loader::before{content:"";position:absolute;inset:0;background:var(--mantequilla);
+  -webkit-mask:linear-gradient(#000 0 0) center/var(--bw) calc(var(--bw)*4/3) no-repeat,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) center/var(--bw) calc(var(--bw)*4/3) no-repeat,linear-gradient(#000 0 0);mask-composite:exclude;
+  animation:hueco 1s 1.8s cubic-bezier(.6,0,.3,1) forwards}
+@keyframes hueco{to{-webkit-mask-size:calc(var(--bw)*12) calc(var(--bw)*16),auto;mask-size:calc(var(--bw)*12) calc(var(--bw)*16),auto}}
+.libro{position:relative;width:var(--bw);aspect-ratio:3/4;transform-style:preserve-3d;animation:mece 1.8s ease-in-out,zoom 1s 1.8s cubic-bezier(.6,0,.3,1) forwards}
+@keyframes mece{0%,100%{transform:rotateX(0) rotateY(0)}40%{transform:rotateX(7deg) rotateY(-9deg)}}
+@keyframes zoom{to{transform:scale(12)}}
+.tapa,.hoja{position:absolute;inset:0;transform-origin:0 50%;transform-style:preserve-3d;border-radius:4px 14px 14px 4px}
+.tapa{animation:abre 1.15s .85s cubic-bezier(.32,.72,0,1) forwards}
+.hoja{background:var(--blanco);box-shadow:inset 8px 0 14px -8px rgba(21,18,15,.35);animation:abre 1.1s cubic-bezier(.32,.72,0,1) forwards}
+.hoja.a{--a:-152deg;animation-delay:.94s}.hoja.b{--a:-144deg;animation-delay:1.02s}.hoja.c{--a:-136deg;animation-delay:1.1s}
+@keyframes abre{to{transform:rotateY(var(--a,-160deg))}}
+.frente,.dentro{position:absolute;inset:0;border-radius:inherit;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.frente{background:var(--tinta);color:var(--mantequilla);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;outline:2px solid var(--mantequilla);outline-offset:-14px;box-shadow:0 30px 60px -25px rgba(21,18,15,.7)}
+.frente svg{width:34%}
+.frente b{font:800 clamp(30px,9vw,44px)/1 var(--display);letter-spacing:-.04em}
+.frente small{font:500 11px var(--mono);letter-spacing:.16em}
+.dentro{background:var(--papel-2);transform:rotateY(180deg)}
+.w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.06em .04em .12em;margin:-.06em -.04em -.12em}
+.w>span{display:inline-block;animation:sube .78s cubic-bezier(.22,1,.36,1) both;animation-delay:calc(2.2s + var(--i,0)*90ms)}
+@keyframes sube{from{transform:translateY(118%)}}
+@keyframes loaderOut{to{opacity:0;visibility:hidden}}
+
+/* Nav */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:22px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:24px;letter-spacing:-0.04em;text-decoration:none}
+.logo svg{width:34px;height:34px;flex:none}
+.nav p{font-size:14px;max-width:44ch;text-align:center;color:var(--gris-claro)}
+@media(max-width:820px){.nav p{display:none}}
+
+/* Hero */
+.hero h1{font-size:clamp(56px,13.2vw,216px);text-align:center;padding-top:clamp(8px,2vw,28px)}
+.hero h1 em{color:var(--mantequilla)}
+/* Hero: campo 3D. Decenas de tarjetas a distintas profundidades cruzan de derecha a izquierda;
+   giran según su posición (como en la pared interior de un cilindro) y siguen al cursor. */
+.hero{position:relative;min-height:max(640px,100vh);overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:140px;background:linear-gradient(transparent,var(--tinta));z-index:1;pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{position:relative}
+.hero h1::before{content:"";position:absolute;inset:-18% -4% -30%;z-index:-1;background:radial-gradient(closest-side,rgba(21,18,15,.82),rgba(21,18,15,.5) 55%,transparent);filter:blur(24px);pointer-events:none}
+.stage{position:absolute;inset:0;perspective:1100px;perspective-origin:50% 62%}
+.field{position:absolute;left:50%;top:64%;width:0;height:0;transform-style:preserve-3d;transform:rotateY(calc(var(--mx,0)*-8deg)) rotateX(calc(var(--my,0)*5deg)) translateZ(calc(var(--hero,0)*320px));opacity:calc(1 - var(--hero,0)*.85)}
+.fc{position:absolute;left:0;top:0;width:var(--w,220px);margin:-150px 0 0 calc(var(--w,220px)/-2);will-change:transform}
+.fc>div{border-radius:16px;box-shadow:0 30px 50px -20px rgba(0,0,0,.7)}
+.pat-e{background:radial-gradient(circle at 50% 100%,var(--mantequilla) 0 34%,transparent 35%) 0 0/60px 60px var(--azul)}
+.card{background:var(--blanco);color:var(--tinta);padding:16px;display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.3}
+.card small{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gris)}
+.card b.t{font-weight:800;font-size:26px;letter-spacing:-0.03em;line-height:.95;text-transform:uppercase}
+.card .row{display:flex;justify-content:space-between;border-top:1px solid var(--papel-2);padding-top:6px}
+.card .go{background:var(--mandarina);border-radius:8px;text-align:center;font-weight:800;padding:8px;margin-top:2px}
+.pat{aspect-ratio:3/4}
+.pat-a{background:conic-gradient(var(--azul) 25%,var(--papel) 0 50%,var(--azul) 0 75%,var(--papel) 0) 0 0/52px 52px}
+.pat-b{background:repeating-linear-gradient(90deg,var(--mandarina) 0 22px,var(--tinta-2) 22px 44px)}
+.pat-c{background:radial-gradient(circle,var(--tinta) 30%,transparent 32%) 0 0/36px 36px var(--mantequilla)}
+.pat-d{background:repeating-linear-gradient(0deg,var(--hoja) 0 18px,var(--papel) 18px 36px)}
+
+/* Capítulo problema */
+.problema h2{max-width:14ch}
+.problema .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(28px,5vw,80px);align-items:end;margin-top:28px}
+.tachado{display:flex;flex-wrap:wrap;gap:8px 14px;font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--gris-claro)}
+.tachado s{text-decoration-thickness:2px;text-decoration-color:var(--mandarina)}
+.tachado b{color:var(--tinta);background:var(--mantequilla);padding:2px 8px}
+
+/* Domingo: presupuesto y ticket */
+.domingo{background:var(--papel);color:var(--tinta)}
+.domingo .eyebrow,.mie .eyebrow{color:var(--gris)}
+.presu{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(32px,6vw,96px);align-items:start;margin-top:clamp(36px,5vw,64px)}
+.ctrl{display:flex;flex-direction:column;gap:22px;min-width:0}
+.monto{font:800 clamp(88px,15vw,190px)/.82 var(--display);letter-spacing:-0.05em;font-variant-numeric:tabular-nums}
+.monto sup{font-size:.32em;vertical-align:top;position:relative;top:.25em;letter-spacing:0;color:var(--gris);font-weight:500}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:grab}
+input[type=range]::-webkit-slider-runnable-track{height:10px;border-radius:9px;background:linear-gradient(90deg,var(--tinta) var(--p,40%),var(--papel-2) var(--p,40%))}
+input[type=range]::-moz-range-track{height:10px;border-radius:9px;background:var(--papel-2)}
+input[type=range]::-moz-range-progress{height:10px;border-radius:9px;background:var(--tinta)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:40px;height:40px;margin-top:-15px;border-radius:50%;background:var(--mandarina);border:4px solid var(--tinta)}
+input[type=range]::-moz-range-thumb{width:32px;height:32px;border-radius:50%;background:var(--mandarina);border:4px solid var(--tinta)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 18px;border-radius:999px;border:2px solid var(--tinta);background:transparent;color:var(--tinta);font:700 15px var(--display);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--tinta);color:var(--papel)}
+.resumen{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.resumen div{background:var(--hoja);color:var(--blanco);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:2px}
+.resumen div+div{background:var(--tinta)}
+.resumen b{font:800 clamp(34px,5vw,54px)/1 var(--display);letter-spacing:-0.04em;font-variant-numeric:tabular-nums}
+.resumen span{font-size:14px}
+.ticket{position:relative;background:var(--blanco);padding:26px 22px 30px;font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums;transform:rotate(1.4deg);box-shadow:0 30px 60px -30px rgba(21,18,15,.5);max-width:420px;width:100%;justify-self:center;min-width:0}
+.ticket::after{content:"";position:absolute;left:0;right:0;top:100%;height:12px;background:linear-gradient(135deg,var(--blanco) 50%,transparent 50%) 0 0/14px 12px,linear-gradient(225deg,var(--blanco) 50%,transparent 50%) 0 0/14px 12px}
+.ticket header{text-align:center;display:flex;flex-direction:column;gap:2px;padding-bottom:14px;border-bottom:2px dashed var(--gris-claro)}
+.ticket header b{font:800 30px/1 var(--display);letter-spacing:-0.04em}
+.ticket ul{list-style:none;margin:0;padding:12px 0;display:flex;flex-direction:column;gap:7px;border-bottom:2px dashed var(--gris-claro);min-height:300px}
+.ticket li{display:flex;gap:8px;align-items:baseline;animation:entra .25s both}
+.ticket li i{flex:1;border-bottom:1px dotted var(--gris-claro);transform:translateY(-3px)}
+@keyframes entra{from{opacity:.2;transform:translateX(-6px)}}
+.ticket .tot{display:flex;justify-content:space-between;padding-top:10px;font-weight:700;font-size:20px}
+.ticket .tot.s{font-size:13px;color:var(--hoja);padding-top:4px}
+.ticket footer{padding-top:14px;text-align:center;color:var(--gris);font-size:11px;line-height:1.5}
+.barras{height:34px;margin:12px auto 0;width:70%;background:repeating-linear-gradient(90deg,var(--tinta) 0 2px,transparent 2px 5px,var(--tinta) 5px 9px,transparent 9px 11px)}
+
+/* Recetas */
+.recetas{margin-top:clamp(80px,11vw,150px)}
+.recetas .top{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px 64px;align-items:end}
+.recetas h2{font-size:clamp(36px,6vw,84px)}
+.deck{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px;margin-top:40px}
+.flip{perspective:1200px;height:420px;border:0;padding:0;background:none;cursor:pointer;text-align:left;color:var(--tinta);font-family:var(--display)}
+.flip .in{display:block;position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.3,.8,.3,1)}
+.flip[aria-pressed=true] .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:20px;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.flip .f{background:var(--c,var(--mantequilla))}
+.flip .b{background:var(--tinta);color:var(--papel);transform:rotateY(180deg)}
+.flip img,.plato{display:block;width:76%;height:auto;aspect-ratio:1;margin:2px auto 0;border-radius:50%;object-fit:cover;box-shadow:0 16px 26px -14px rgba(21,18,15,.55)}
+.plato{width:82%}
+.flip h3{font-weight:800;font-size:24px;line-height:.98;letter-spacing:-0.03em;text-transform:uppercase}
+.flip .meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.06em;margin-top:auto}
+.flip ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.3;counter-reset:p}
+.flip ol li{display:flex;gap:10px;counter-increment:p}
+.flip ol li::before{content:counter(p);font-family:var(--serif);font-style:italic;font-size:24px;line-height:.9;color:var(--mantequilla)}
+.flip .b small{font-family:var(--mono);font-size:11px;color:var(--gris-claro);letter-spacing:.08em}
+
+/* Lunes: entrenar */
+.lunes{background:var(--azul);color:var(--papel);overflow:hidden}
+.lunes h2{text-align:center;margin-top:20px}
+.arena{position:relative;display:grid;place-items:center;margin-top:28px;min-height:680px}
+.reloj{position:absolute;inset:0;display:grid;place-items:center;font:800 clamp(120px,31vw,460px)/1 var(--display);letter-spacing:-0.05em;color:var(--azul-2);font-variant-numeric:tabular-nums;user-select:none;white-space:nowrap}
+.fono{position:relative;width:min(100%,320px);height:650px;background:var(--papel);color:var(--tinta);border:9px solid var(--tinta);border-radius:46px;padding:44px 18px 18px;display:flex;flex-direction:column;gap:12px;box-shadow:0 50px 80px -30px rgba(0,0,0,.55)}
+.fono::before{content:"";position:absolute;top:12px;left:50%;width:84px;height:22px;margin-left:-42px;border-radius:20px;background:var(--tinta)}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--papel-2);border-radius:999px;padding:4px}
+.seg button{min-height:44px;border:0;border-radius:999px;background:transparent;color:var(--tinta);font:700 15px var(--display);cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--tinta);color:var(--papel)}
+.fono h3{font-weight:800;font-size:50px;line-height:.86;letter-spacing:-0.04em;text-transform:uppercase}
+.fono .sub{font-size:14px;color:var(--gris)}
+.ej{list-style:none;margin:0;padding:0;border-top:2px solid var(--tinta)}
+.ej li{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--papel-2);font-weight:500;font-size:15px;animation:entra .3s both}
+.ej svg{width:40px;height:40px;flex:none;background:var(--papel-2);border-radius:10px;padding:8px}
+.ej b{margin-left:auto;font-family:var(--mono);font-size:14px}
+.fono .btn{margin-top:auto;justify-content:center;background:var(--mandarina);font-weight:800;font-size:18px;text-transform:uppercase;min-height:54px}
+.lunes .notas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px 80px;margin-top:40px;border-top:1px solid var(--papel);padding-top:24px}
+.lunes .notas p:first-child{font-weight:700}
+
+/* Miércoles: lo que suele pasar */
+.mie{background:var(--blanco);color:var(--tinta)}
+.mie h2{margin-top:20px}
+.mie .lead{margin-top:20px;color:var(--gris)}
+.pasa{list-style:none;margin:48px 0 0;padding:0}
+.pasa li{display:grid;grid-template-columns:minmax(0,90px) minmax(0,1.1fr) minmax(0,1fr);gap:16px 32px;align-items:center;padding:26px 0;border-top:1px solid var(--papel-2);transition:padding .3s}
+.pasa li:hover{padding-left:18px}
+.pasa li>span{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--gris)}
+.pasa h3{font-weight:700;font-size:clamp(22px,2.8vw,36px);line-height:1.02;letter-spacing:-0.03em}
+.pasa h3 small{display:block;font:italic 400 18px var(--serif);letter-spacing:0;color:var(--gris)}
+.pasa p{color:var(--gris);font-size:16px}
+@media(max-width:700px){.pasa li{grid-template-columns:1fr;gap:6px}}
+.racha{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-top:40px}
+.racha div{aspect-ratio:1;border-radius:14px;background:var(--tinta);color:var(--papel);display:grid;place-items:center;font-weight:800;font-size:clamp(14px,2.4vw,28px)}
+.racha div:nth-child(3),.racha div:nth-child(6){background:var(--hoja)}
+.racha div:nth-child(7){background:var(--mantequilla);color:var(--tinta)}
+.racha+p{margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--gris);letter-spacing:.06em}
+
+/* Viernes: coach */
+.vie{background:var(--mandarina);color:var(--tinta)}
+.vie h2{margin-top:20px;max-width:13ch}
+.coach{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,6vw,90px);margin-top:48px;align-items:start}
+.pasos{display:flex;flex-direction:column;gap:0;counter-reset:c}
+.pasos div{display:grid;grid-template-columns:64px minmax(0,1fr);gap:8px;padding:20px 0;border-top:2px solid var(--tinta);counter-increment:c}
+.pasos div::before{content:counter(c);font:italic 400 56px/.8 var(--serif)}
+.pasos b{font-size:22px;letter-spacing:-0.02em;display:block}
+.chat{background:var(--tinta);color:var(--papel);border-radius:26px;padding:22px;display:flex;flex-direction:column;gap:12px;transform:rotate(-1.2deg)}
+.chat small{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gris-claro)}
+.chat p{background:var(--tinta-2);border-radius:16px 16px 16px 4px;padding:12px 14px;font-size:15px;max-width:92%}
+.chat p.yo{align-self:flex-end;background:var(--mantequilla);color:var(--tinta);border-radius:16px 16px 4px 16px}
+
+/* Planes */
+.planes h2{text-align:center}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin-top:48px;align-items:stretch}
+.plan{border:2px solid var(--gris);border-radius:26px;padding:26px;display:flex;flex-direction:column;gap:14px}
+.plan.pro{background:var(--papel);color:var(--tinta);border-color:var(--papel)}
+.plan h3{font-weight:800;font-size:34px;letter-spacing:-0.04em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.plan h3 span{font:700 11px var(--mono);letter-spacing:.08em;background:var(--mandarina);color:var(--tinta);padding:5px 9px;border-radius:99px}
+.plan .precio{font:800 64px/1 var(--display);letter-spacing:-0.05em;font-variant-numeric:tabular-nums}
+.plan .precio small{font:500 15px var(--display);letter-spacing:0}
+.plan ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;font-size:15px}
+.plan li{display:flex;gap:10px}
+.plan li svg{width:18px;height:18px;flex:none;margin-top:3px}
+.planes .nota{text-align:center;margin-top:18px;font-family:var(--mono);font-size:12px;color:var(--gris-claro)}
+
+/* Cierre */
+.fin{background:var(--mantequilla);color:var(--tinta);text-align:center;padding-bottom:calc(clamp(72px,10vw,140px) + 80px)}
+.fin h2{font-size:clamp(48px,10.5vw,170px)}
+.cuenta{display:flex;justify-content:center;gap:clamp(10px,3vw,36px);margin-top:36px;flex-wrap:wrap}
+.cuenta div{display:flex;flex-direction:column;gap:2px;min-width:86px}
+.cuenta b{font:800 clamp(54px,9vw,120px)/.9 var(--display);letter-spacing:-0.05em;font-variant-numeric:tabular-nums}
+.cuenta span{font-family:var(--mono);font-size:12px;letter-spacing:.12em}
+.fin form{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px}
+.fin input{min-height:56px;width:min(100%,360px);border:2px solid var(--tinta);border-radius:999px;background:transparent;padding:0 22px;font:500 17px var(--display);color:var(--tinta)}
+.fin input::placeholder{color:var(--gris)}
+.fin .btn{background:var(--tinta);color:var(--papel);min-height:56px;font-size:17px}
+.fin .btn:hover{background:var(--azul)}
+.fin .ok{margin-top:14px;font-weight:700;min-height:1.5em}
+.pie{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-top:64px;font-family:var(--mono);font-size:12px;letter-spacing:.08em}
+
+/* Píldora flotante con la semana */
+.pill{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:12px;background:var(--tinta);color:var(--papel);border:1px solid var(--gris);border-radius:999px;padding:6px 6px 6px 16px;box-shadow:0 14px 30px -10px rgba(0,0,0,.6);max-width:calc(100vw - 24px)}
+.dias{display:flex;gap:5px;font-family:var(--mono);font-size:11px}
+.dias span{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--tinta-2);color:var(--gris-claro);transition:background .3s,color .3s}
+.dias span.on{background:var(--mantequilla);color:var(--tinta)}
+.pill .btn{min-height:44px;padding:0 18px;font-size:14px;white-space:nowrap}
+@media(max-width:480px){.dias span{width:17px;height:17px;font-size:9px}.dias{gap:3px}}
+
+/* Efectos por scroll: el JS solo escribe variables (0 a 1) y el CSS hace la cuenta.
+   Sin JS o con movimiento reducido, cada variable vale 1 = estado final. */
+.fx .hero h1{transform:translateY(calc(var(--hero,0)*-7vh)) scale(calc(1 - var(--hero,0)*.14));opacity:calc(1 - var(--hero,0)*1.15)}
+.fx .sheet{transform-origin:50% 100%;transform:translateY(calc((1 - var(--s,1))*9vh)) rotate(calc((1 - var(--s,1))*-2.4deg)) scale(calc(.95 + .05*var(--s,1)));will-change:transform}
+.fx .pasa li>*{opacity:calc(.12 + .88*var(--rp,1));transform:translateY(calc((1 - var(--rp,1))*30px))}
+.fx .ticket{transform:perspective(1200px) rotateX(calc((1 - var(--tk,1))*26deg)) rotate(calc(1.4deg - (1 - var(--tk,1))*6deg)) translateY(calc((1 - var(--tk,1))*70px))}
+.deck .flip:nth-child(2){--i:1}.deck .flip:nth-child(3){--i:2}.deck .flip:nth-child(4){--i:3}
+.grid3 .plan:nth-child(2){--i:1}.grid3 .plan:nth-child(3){--i:2}
+.fx .plan{transform:perspective(1000px) rotateX(calc((1 - var(--pl,1))*-30deg)) translateY(calc((1 - var(--pl,1))*(40px + var(--i,0)*46px)));opacity:calc(.2 + .8*var(--pl,1));transform-origin:50% 0}
+.fx .chat{transform:rotate(calc(-1.2deg - (1 - var(--ch,1))*7deg)) translateY(calc((1 - var(--ch,1))*80px))}
+@media(min-width:1040px){
+  .fx .deck .flip{transform:translateX(calc((1 - var(--deck,1))*(1.5 - var(--i,0))*88%)) rotate(calc((1 - var(--deck,1))*(var(--i,0) - 1.5)*7deg)) translateY(calc((1 - var(--deck,1))*var(--i,0)*-10px))}
+}
+/* Escena fijada: la tinta azul se abre desde el centro, el reloj se asienta y el teléfono entra girando */
+@media(min-width:1000px) and (min-height:640px){
+  .fx .lunes{height:270vh;padding-block:0;background:var(--papel);overflow:visible}
+  .fx .lunes .wrap{position:sticky;top:0;height:100vh;max-width:none;overflow:hidden;display:flex;flex-direction:column;align-items:center;padding-top:26px}
+  .fx .lunes .wrap::before{content:"";position:absolute;inset:0;background:var(--azul);-webkit-mask-image:radial-gradient(circle at 50% 58%,#000 calc(var(--ink,1)*125vmax - 9vmax),transparent calc(var(--ink,1)*125vmax));mask-image:radial-gradient(circle at 50% 58%,#000 calc(var(--ink,1)*125vmax - 9vmax),transparent calc(var(--ink,1)*125vmax))}
+  .fx .lunes .eyebrow{position:relative;z-index:1;align-self:stretch;opacity:var(--ink,1)}
+  .fx .lunes h2{position:relative;z-index:1;font-size:clamp(40px,5.4vw,84px);margin-top:14px;opacity:var(--ink,1);transform:translateY(calc((1 - var(--ink,1))*40px))}
+  .fx .lunes .arena{position:static;min-height:0;margin:0;display:block}
+  .fx .lunes .reloj{z-index:0;opacity:var(--ink,1);transform:scale(calc(1.4 - .4*var(--ink,1)))}
+  .fx .lunes .fono{position:absolute;z-index:2;left:50%;bottom:86px;margin-left:-160px;width:320px;transform-origin:50% 100%;
+    transform:perspective(1400px) rotateY(calc((1 - var(--phone,1))*-24deg + var(--tx,0)*1deg)) rotateX(calc((1 - var(--phone,1))*11deg)) translateY(calc((1 - var(--phone,1))*9vh)) scale(calc(var(--fs,1)*(.84 + .16*var(--phone,1))));
+    opacity:var(--phone,1);filter:blur(calc((1 - var(--phone,1))*14px));will-change:transform,opacity,filter}
+  .fx .lunes .notas{position:absolute;z-index:1;left:var(--gut);right:var(--gut-r);bottom:96px;margin:0;border:0;padding:0;display:flex;justify-content:space-between;opacity:var(--notas,1);transform:translateY(calc((1 - var(--notas,1))*36px))}
+  .fx .lunes .notas p{max-width:24ch}
+}
+@media(prefers-reduced-motion:reduce){
+  .loader{display:none}.fc>div,.w>span{animation:none}.flip .in{transition:none}html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="loader" aria-hidden="true"><div class="libro">
+  <div class="hoja c"></div><div class="hoja b"></div><div class="hoja a"></div>
+  <div class="tapa"><div class="frente"><svg viewBox="0 0 34 34"><rect width="34" height="34" rx="9" fill="#FFD23F"/><path d="M11 8v18h13" fill="none" stroke="#15120F" stroke-width="5"/><circle cx="25" cy="10" r="3" fill="#FF6B2C"/></svg><b>LUNES</b><small id="pct">CARGANDO</small></div><div class="dentro"></div></div>
+</div></div>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="#top" id="top" aria-label="LUNES, inicio">
+        <svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#FFD23F"/><path d="M11 8v18h13" fill="none" stroke="#15120F" stroke-width="5"/><circle cx="25" cy="10" r="3" fill="#FF6B2C"/></svg>
+        LUNES
+      </a>
+      <p>Rutinas en casa y en gym. Meal prep de toda la semana con tu presupuesto y los precios de tu súper.</p>
+      <a class="btn" href="#empezar">Quiero empezar</a>
+    </nav>
+    <h1 aria-label="El lunes es hoy."><span class="w" aria-hidden="true"><span>El</span></span> <span class="w" aria-hidden="true" style="--i:1"><span>lunes</span></span> <em class="s" aria-hidden="true"><span class="w" style="--i:2"><span>es</span></span> <span class="w" style="--i:3"><span>hoy.</span></span></em></h1>
+  </div>
+  <div class="stage" id="stage" aria-hidden="true"><div class="field" id="field"></div></div>
+</header>
+
+<section class="band problema">
+  <div class="wrap">
+    <div class="eyebrow"><span>El problema</span><span>Capítulo 01</span></div>
+    <div class="cols">
+      <h2 style="margin-top:20px">Siempre empiezas el lunes. Y el lunes <em class="s">nunca llega.</em></h2>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <p class="lead">El gym queda lejos. La rutina de internet no está hecha para ti. Comer bien sale caro y nadie te dice qué comprar. Así se va un mes, y luego otro.</p>
+        <p class="lead">A ti no te falta fuerza de voluntad. Te falta que alguien te deje la semana armada: qué entrenar hoy, qué comprar con lo que traes y qué cocinar el domingo.</p>
+        <div class="tachado"><s>el lunes</s><s>el otro lunes</s><s>después de las fiestas</s><s>en enero</s><s>cuando cobre</s><b>HOY</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band sheet domingo" id="super">
+  <div class="wrap">
+    <div class="eyebrow"><span>Domingo · Armas la semana</span><span>Capítulo 02</span></div>
+    <h2 style="margin-top:20px">Dinos cuánto traes. <em class="s">Nosotros hacemos el súper.</em></h2>
+    <div class="presu">
+      <div class="ctrl">
+        <label for="presupuesto" class="lead">Mueve tu presupuesto de la semana. LUNES elige productos de buena calidad, te dice para cuántas comidas alcanza y te arma la lista.</label>
+        <div class="monto" id="monto" aria-live="polite"><sup>$</sup>800</div>
+        <input type="range" id="presupuesto" min="400" max="1500" step="50" value="800">
+        <div class="chips" role="group" aria-label="Supermercado">
+          <button class="chip" type="button" id="s-walmart" data-s="0" aria-pressed="true">Walmart</button>
+          <button class="chip" type="button" id="s-soriana" data-s="1" aria-pressed="false">Soriana</button>
+          <button class="chip" type="button" id="s-chedraui" data-s="2" aria-pressed="false">Chedraui</button>
+        </div>
+        <div class="resumen">
+          <div><b id="r-comidas">21</b><span>comidas de la semana</span></div>
+          <div><b id="r-costo">$38</b><span>por comida</span></div>
+        </div>
+      </div>
+      <div class="ticket" aria-live="polite">
+        <header><b>LUNES</b><span>TICKET DE LA SEMANA</span><span id="t-tienda">WALMART · DOMINGO</span></header>
+        <ul id="t-lista"></ul>
+        <div class="tot"><span>TOTAL</span><span id="t-total">$799</span></div>
+        <div class="tot s"><span>TE SOBRAN</span><span id="t-sobra">$1</span></div>
+        <footer>Precios de ejemplo para la demostración.<br>En la app se actualizan cada mes.<div class="barras"></div></footer>
+      </div>
+    </div>
+
+    <div class="recetas">
+      <div class="top">
+        <h2>Recetas en una imagen. <em class="s">Sin video de 12 minutos.</em></h2>
+        <p class="lead">Cada receta cabe en una tarjeta: el plato, cuatro pasos y lo que cuesta la porción. Toca una para voltearla.</p>
+      </div>
+      <div class="deck">
+        <button class="flip" type="button" id="r1" aria-pressed="false" style="--c:#FFD23F"><span class="in">
+          <span class="f"><img src="img/pollo.jpg" alt="" loading="lazy" width="640" height="640">
+          <h3>Pollo, arroz y calabacita</h3><span class="meta"><span>$31 PORCIÓN</span><span>42 g PROTEÍNA</span></span></span>
+          <span class="b"><small>PARA 5 TÓPERS</small><ol><li>Cuece 500 g de arroz con sal.</li><li>Sazona el pollo con ajo y limón. Séllalo 6 min por lado.</li><li>Saltea la calabacita en cubos 4 minutos.</li><li>Reparte. Dura 4 días en el refri.</li></ol></span></span></button>
+        <button class="flip" type="button" id="r2" aria-pressed="false" style="--c:#FF6B2C"><span class="in">
+          <span class="f"><img src="img/picadillo.jpg" alt="" loading="lazy" width="640" height="640">
+          <h3>Picadillo con frijoles</h3><span class="meta"><span>$34 PORCIÓN</span><span>38 g PROTEÍNA</span></span></span>
+          <span class="b"><small>PARA 5 TÓPERS</small><ol><li>Dora 1 kg de carne molida con cebolla y ajo.</li><li>Agrega jitomate picado y zanahoria. Tapa 10 min.</li><li>Calienta los frijoles con un poco de su caldo.</li><li>Sirve mitad y mitad. Acompaña con tortilla.</li></ol></span></span></button>
+        <button class="flip" type="button" id="r3" aria-pressed="false" style="--c:#E9E1D2"><span class="in">
+          <span class="f"><img src="img/avena.jpg" alt="" loading="lazy" width="640" height="640">
+          <h3>Avena de la noche con plátano</h3><span class="meta"><span>$12 PORCIÓN</span><span>14 g PROTEÍNA</span></span></span>
+          <span class="b"><small>PARA 5 DESAYUNOS</small><ol><li>En cada frasco: media taza de avena y una de leche.</li><li>Agrega una cucharada de yogurt y canela.</li><li>Tapa y deja en el refri toda la noche.</li><li>En la mañana, plátano en rodajas encima.</li></ol></span></span></button>
+        <button class="flip" type="button" id="r4" aria-pressed="false" style="--c:#9DB5FF"><span class="in">
+          <span class="f"><img src="img/atun.jpg" alt="" loading="lazy" width="640" height="640">
+          <h3>Atún, arroz y brócoli</h3><span class="meta"><span>$29 PORCIÓN</span><span>36 g PROTEÍNA</span></span></span>
+          <span class="b"><small>PARA 4 TÓPERS</small><ol><li>Cuece el arroz. Usa el mismo de la semana.</li><li>Brócoli al vapor 5 minutos, que quede firme.</li><li>Escurre el atún y mézclalo con limón y sal.</li><li>Arma el tóper en tres partes. Listo en 15 min.</li></ol></span></span></button>
+      </div>
+      <p class="mono" style="margin-top:16px;font-size:12px;color:var(--gris)">Costos y proteína estimados con los precios de ejemplo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band lunes" id="entrena">
+  <div class="wrap">
+    <div class="eyebrow"><span>Lunes · Entrenas</span><span>Capítulo 03</span></div>
+    <h2>En casa o en el gym. <em class="s">La rutina se adapta.</em></h2>
+    <div class="arena">
+      <div class="reloj" id="reloj" aria-hidden="true">32:00</div>
+      <div class="fono">
+        <div class="seg" role="group" aria-label="Dónde entrenas hoy">
+          <button type="button" id="m-casa" data-m="casa" aria-pressed="true">En casa</button>
+          <button type="button" id="m-gym" data-m="gym" aria-pressed="false">En gym</button>
+        </div>
+        <span class="mono" style="font-size:11px;letter-spacing:.1em;color:var(--gris)">LUNES · SEMANA 1</span>
+        <h3>Hoy:<br>pierna</h3>
+        <span class="sub" id="f-sub">32 min · 5 ejercicios · sin equipo</span>
+        <ul class="ej" id="f-lista"></ul>
+        <a class="btn" href="#empezar">Empezar</a>
+      </div>
+    </div>
+    <div class="notas">
+      <p>Cada ejercicio trae su imagen, sus series y sus descansos. Le das empezar y solo sigues.</p>
+      <p>¿Hoy no llegas al gym? Cambia a casa y la rutina se rearma con lo que tengas: una silla, una mochila, tu propio peso. Pruébalo en el teléfono de arriba.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band sheet mie">
+  <div class="wrap">
+    <div class="eyebrow"><span>Miércoles · No lo sueltas</span><span>Capítulo 04</span></div>
+    <h2>Empieza como un lunes. <em class="s">Casi nunca se queda ahí.</em></h2>
+    <p class="lead">Sin promesas de kilos ni de fechas. Solo lo que suele pasar cuando la semana ya viene armada.</p>
+    <ol class="pasa">
+      <li><span>SEMANA 01</span><h3><small>Suele pasar que</small>el miércoles ya no pides comida.</h3><p>Abres el refri y ahí está tu tóper. La decisión ya la tomaste el domingo, con calma.</p></li>
+      <li><span>SEMANA 02</span><h3><small>Suele pasar que</small>dejas de preguntarte qué toca hoy.</h3><p>Abres la app, ves la rutina, le das empezar. Pensar menos también es descansar.</p></li>
+      <li><span>SEMANA 03</span><h3><small>Suele pasar que</small>el súper se vuelve una lista.</h3><p>Entras, compras lo de la lista y sales. Sabes cuánto vas a pagar antes de llegar a la caja.</p></li>
+      <li><span>SEMANA 04</span><h3><small>Suele pasar que</small>alguien te pregunta qué estás haciendo.</h3><p>Y tú ya tienes un mes completo que contar, no un propósito.</p></li>
+    </ol>
+    <div class="racha" aria-label="Ejemplo de una semana completa">
+      <div>L</div><div>M</div><div>M</div><div>J</div><div>V</div><div>S</div><div>D</div>
+    </div>
+    <p>NEGRO: ENTRENAS · VERDE: DESCANSO ACTIVO · AMARILLO: DOMINGO DE MEAL PREP</p>
+  </div>
+</section>
+
+<section class="band vie" id="coach">
+  <div class="wrap">
+    <div class="eyebrow"><span>Viernes · Tu coach</span><span>Capítulo 05</span></div>
+    <h2>¿Lo quieres hecho <em class="s">solo para ti?</em></h2>
+    <div class="coach">
+      <div class="pasos">
+        <div><p><b>Nos cuentas de ti</b>Tu meta, tu nivel, tus horarios, lo que no te gusta comer y cuánto gastas a la semana. Son dos minutos.</p></div>
+        <div><p><b>Tu coach arma tu plan</b>Una persona real revisa tus respuestas y te deja tu rutina y tus comidas listas en la app.</p></div>
+        <div><p><b>Se ajusta cada mes</b>Si subiste de nivel, si cambió tu horario o tu presupuesto, tu plan cambia contigo.</p></div>
+      </div>
+      <div class="chat" aria-label="Ejemplo de conversación con tu coach">
+        <small>TU COACH · EJEMPLO</small>
+        <p>Vi que esta semana solo puedes entrenar 3 días. Te la dejé en lunes, miércoles y sábado.</p>
+        <p class="yo">Va. ¿Y si el sábado no tengo gym?</p>
+        <p>Ya viene con versión en casa. Y bajé tu lista del súper a $750 como me pediste.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band planes" id="planes">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--gris-claro)"><span>Planes</span><span>Capítulo 06</span></div>
+    <h2 style="margin-top:20px">Empieza con lo que <em class="s">necesites.</em></h2>
+    <div class="grid3">
+      <div class="plan"><h3>Básico</h3><div class="precio">$99<small> al mes</small></div><ul>
+        <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 9l4 4 8-9"/></svg>Rutinas en casa y en gym</li>
+        <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 9l4 4 8-9"/></svg>Cada ejercicio con imagen</li>
+        <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 9l4 4 8-9"/></svg>Registro de tu progreso</li></ul></div>
+      <div class="plan pro"><h3>Pro <span>EL DE LA SEMANA COMPLETA</span></h3><div class="precio">$179<small> al mes</small></div><ul>
+        <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 9l4 4 8-9"/></svg>Todo lo del Básico</li>
+        <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 9l4 4 8-9"/></svg>Meal prep con tu presupuesto</li>
+        <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 9l4 4 8-9"/></svg>Lista del súper con precios</li>
+        <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 9l4 4 8-9"/></svg>Recetas en imagen</li></ul></div>
+      <div class="plan"><h3>Coach</h3><div class="precio">$499<small> al mes</small></div><ul>
+        <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 9l4 4 8-9"/></svg>Todo lo del Pro</li>
+        <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 9l4 4 8-9"/></svg>Rutina y comidas hechas para ti</li>
+        <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 9l4 4 8-9"/></svg>Ajuste cada mes con tu coach</li></ul></div>
+    </div>
+    <p class="nota">Precios en pesos mexicanos. Propuesta inicial, por confirmar.</p>
+  </div>
+</section>
+
+<section class="band sheet fin" id="empezar">
+  <div class="wrap">
+    <h2 id="fin-titulo">El lunes llega en</h2>
+    <div class="cuenta" id="cuenta" aria-live="off">
+      <div><b id="c-d">0</b><span>DÍAS</span></div><div><b id="c-h">00</b><span>HORAS</span></div><div><b id="c-m">00</b><span>MINUTOS</span></div><div><b id="c-s">00</b><span>SEGUNDOS</span></div>
+    </div>
+    <form id="lista" novalidate>
+      <label for="correo" style="position:absolute;left:-9999px">Tu correo</label>
+      <input type="email" id="correo" placeholder="tu correo" autocomplete="email" required>
+      <button class="btn" type="submit">Avísenme el lunes</button>
+    </form>
+    <p class="ok" id="ok" role="status"></p>
+    <div class="pie"><span>LUNES · HECHO EN MÉXICO</span><span>DEMO DE CONCEPTO</span><span>DEJA DE DECIR MAÑANA</span></div>
+  </div>
+</section>
+
+<div class="pill">
+  <div class="dias" id="dias" aria-hidden="true"><span>D</span><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span></div>
+  <a class="btn" href="#empezar">Quiero empezar</a>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var quieto=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Hero: las tarjetas siguen al cursor */
+  var stage=$('stage'), campo=function(){};
+  /* Contador de la intro */
+  (function(){var p=$('pct'),t0=performance.now();(function c(n){var v=Math.min(100,Math.round((n-t0)/8));p.textContent='CARGANDO '+v+'%';if(v<100)requestAnimationFrame(c)})(t0)})();
+
+  /* Motor de scroll: un solo rAF. Suaviza la posición (como Lenis, sin secuestrar el scroll),
+     convierte tramos de scroll en valores 0..1 y los escribe como variables CSS. */
+  if(!quieto){
+    var raiz=document.documentElement; raiz.classList.add('fx');
+    var vh=innerHeight, sy=scrollY, mx=0,my=0,tmx=0,tmy=0, regs=[], n=0;
+    var pin=document.querySelector('.lunes'), fono=document.querySelector('.fono'), pinTop=0, pinH=1;
+    var docTop=function(el){var y=0;while(el){y+=el.offsetTop;el=el.offsetParent}return y};
+    var rg=function(a,b,x){return Math.min(1,Math.max(0,(x-a)/(b-a)))};
+    var eo=function(t){return 1-Math.pow(1-t,3)};
+    var put=function(el,k,v){v=Math.round(v*1000)/1000;var m=el._v||(el._v={});if(m[k]!==v){m[k]=v;el.style.setProperty(k,v)}};
+    var reg=function(sel,k,a,b){document.querySelectorAll(sel).forEach(function(el){regs.push({el:el,k:k,a:a,b:b,top:0})})};
+    reg('.sheet','--s',-1,-.3); reg('.pasa li','--rp',-.95,-.55); reg('.ticket','--tk',-1,-.45);
+    reg('.deck','--deck',-.95,-.35); reg('.grid3','--pl',-.95,-.5); reg('.chat','--ch',-1,-.5);
+    var mide=function(){
+      vh=innerHeight;
+      regs.forEach(function(r){r.top=docTop(r.el)});
+      pinTop=docTop(pin); pinH=pin.offsetHeight;
+      fono.style.setProperty('--fs',Math.min(1,Math.max(.6,(vh-290)/650)).toFixed(3));
+    };
+    addEventListener('resize',mide); addEventListener('load',mide); mide();
+    addEventListener('pointermove',function(e){tmx=e.clientX/innerWidth-.5;tmy=e.clientY/innerHeight-.5});
+    (function cuadro(){
+      if(++n%90===0) mide();
+      var d=scrollY-sy; sy=Math.abs(d)<.4?scrollY:sy+d*.13;
+      mx+=(tmx-mx)*.07; my+=(tmy-my)*.07;
+      put(stage,'--mx',mx); put(stage,'--my',my); put(fono,'--tx',mx*14);
+      put(raiz,'--hero',rg(0,vh*.95,sy));
+      if(sy<vh*1.1) campo(sy);
+      for(var i=0;i<regs.length;i++){var r=regs[i]; put(r.el,r.k,eo(rg(r.top+r.a*vh,r.top+r.b*vh,sy)))}
+      var a=(sy-pinTop)/Math.max(1,pinH-vh);
+      put(pin,'--ink',rg(pinTop-vh*.75,pinTop+vh*.12,sy));
+      put(pin,'--phone',eo(rg(.1,.48,a)));
+      put(pin,'--notas',eo(rg(.42,.66,a)));
+      requestAnimationFrame(cuadro);
+    })();
+  }
+
+  /* Presupuesto -> ticket. Precios de ejemplo; [nombre, precio base, comidas que aporta] en orden de prioridad */
+  var PROD=[
+    ['Pechuga de pollo 1 kg',119,6],['Huevo 30 piezas',89,5],['Arroz 1 kg',32,0],['Frijol negro 1 kg',38,2],
+    ['Avena 1 kg',45,3],['Tortilla de maíz 1 kg',24,0],['Calabacita 1 kg',28,0],['Brócoli 2 piezas',40,0],
+    ['Jitomate 1 kg',30,0],['Plátano 1 kg',22,0],['Atún en agua 4 latas',72,3],['Carne molida 1 kg',165,5],
+    ['Yogurt griego 1 kg',95,2],['Aguacate 1 kg',70,0],['Queso panela 400 g',68,2],['Pechuga de pollo 1 kg',119,6],
+    ['Filete de tilapia 1 kg',135,4],['Fresa 500 g',45,0],['Almendra 200 g',98,0],['Pan integral',52,0],['Espinaca 2 manojos',30,0]
+  ];
+  var TIENDAS=['WALMART','SORIANA','CHEDRAUI'], tienda=0;
+  var rango=$('presupuesto');
+  function precio(i,s){ /* variación fija por producto y tienda, sin favorecer a ninguna */
+    var v=[0,((i*7+3)%9)-4,((i*5+1)%9)-4][s]; return PROD[i][1]+v;
+  }
+  function pinta(){
+    var tope=+rango.value, total=0, comidas=0, html='';
+    for(var i=0;i<PROD.length;i++){
+      var p=precio(i,tienda);
+      if(total+p<=tope){ total+=p; comidas+=PROD[i][2];
+        html+='<li style="animation-delay:'+(i*18)+'ms"><span>'+PROD[i][0]+'</span><i></i><span>$'+p+'</span></li>'; }
+    }
+    comidas=Math.min(21,comidas);
+    $('t-lista').innerHTML=html;
+    $('monto').innerHTML='<sup>$</sup>'+tope.toLocaleString('es-MX');
+    $('t-total').textContent='$'+total.toLocaleString('es-MX');
+    $('t-sobra').textContent='$'+(tope-total);
+    $('t-tienda').textContent=TIENDAS[tienda]+' · DOMINGO';
+    $('r-comidas').textContent=comidas;
+    $('r-costo').textContent='$'+Math.round(total/comidas);
+    rango.style.setProperty('--p',((tope-400)/1100*100)+'%');
+  }
+  rango.addEventListener('input',pinta);
+  document.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){
+    tienda=+c.dataset.s;
+    document.querySelectorAll('.chip').forEach(function(o){o.setAttribute('aria-pressed',o===c)});
+    pinta();
+  })});
+  pinta();
+
+  /* Campo 3D del hero: se generan las tarjetas y cada cuadro se recoloca cada una en x/y/z */
+  (function(){
+    var campoEl=$('field'), sem=7, rnd=function(){sem=(sem*9301+49297)%233280;return sem/233280};
+    var movil=innerWidth<700, N=movil?14:30, CW=movil?168:226;
+    var canasta=function(tope){var t=0,c=0;for(var i=0;i<PROD.length;i++){var p=precio(i,0);if(t+p<=tope){t+=p;c+=PROD[i][2]}}c=Math.min(21,c);return [t,c,Math.round(t/c)]};
+    var RUTS=[['LUNES · EN CASA','Pierna','32 min · sin equipo','Sentadilla','4×15','Zancada','3×12'],['MARTES · GYM','Empuje','45 min · barra y banco','Press de banca','4×8','Press militar','3×10'],['JUEVES · EN CASA','Core','18 min · un tapete','Plancha','4×40s','Bicho muerto','3×12'],['VIERNES · GYM','Espalda','42 min · polea y barra','Remo con barra','4×10','Jalón al pecho','3×12'],['SÁBADO · EN CASA','Cardio','25 min · tu peso','Burpee','5×10','Escalador','4×30s']];
+    var FOTO=['pollo','picadillo','avena','atun'];
+    var RECS=[['Pollo, arroz y calabacita','$31','#FFD23F'],['Picadillo con frijoles','$34','#FF6B2C'],['Avena de la noche','$12','#E9E1D2'],['Atún, arroz y brócoli','$29','#9DB5FF']];
+    var rut=function(i){var r=RUTS[i%5];return '<div class="card"><small>'+r[0]+'</small><b class="t">Hoy:<br>'+r[1]+'</b><span>'+r[2]+'</span><span class="row"><span>'+r[3]+'</span><b class="mono">'+r[4]+'</b></span><span class="row"><span>'+r[5]+'</span><b class="mono">'+r[6]+'</b></span><span class="go">EMPEZAR</span></div>'};
+    var tic=function(i){var tope=[800,600,1000,1200][i%4],c=canasta(tope);return '<div class="card"><small>TICKET DE LA SEMANA</small><b class="t mono" style="font-size:42px">$'+c[0].toLocaleString('es-MX')+'</b><span>de tu presupuesto de <b>$'+tope.toLocaleString('es-MX')+'</b></span><span class="row"><span>Pechuga 1 kg</span><b class="mono">$119</b></span><span class="row"><span>Huevo 30 pzas</span><b class="mono">$89</b></span><span class="row" style="color:#1F6B45"><b>'+c[1]+' comidas</b><b class="mono">$'+c[2]+' c/u</b></span></div>'};
+    var rec=function(i){var r=RECS[i%4];return '<div class="card" style="background:'+r[2]+'"><small style="color:#15120F">RECETA EN IMAGEN</small><img class="plato" src="img/'+FOTO[i%4]+'.jpg" alt=""><b class="t" style="font-size:20px">'+r[0]+'</b><span class="mono">'+r[1]+' por porción</span></div>'};
+    var pat=function(i){return '<div class="pat pat-'+'abcde'[i%5]+'"></div>'};
+    var ORDEN=[rut,pat,rec,pat,tic,pat], vw=innerWidth, H=Math.max(640,innerHeight), W=Math.max(vw*1.7,N*(movil?82:118)), cs=[];
+    for(var i=0;i<N;i++){
+      var f=ORDEN[i%6], esPat=f===pat, el=document.createElement('div');
+      el.className='fc'; el.innerHTML=f(Math.floor(i/6)+(esPat?i:0));
+      var z=esPat?-120-rnd()*560:(i%4===0?40+rnd()*70:-40-rnd()*300), w=esPat?(movil?120:150)+rnd()*50:CW;
+      el.style.setProperty('--w',Math.round(w)+'px');
+      el.firstChild.style.filter='brightness('+(Math.min(1,.5+(z+700)/800)).toFixed(2)+')';
+      campoEl.appendChild(el);
+      cs.push({el:el,x0:(i/N)*W+rnd()*W/N*.5,y0:([-.25,0,.25][i%3]+(rnd()-.5)*.14)*H*.9,z:z,v:20+(z+700)/700*34,k:.35+(z+700)/700*.9,
+        ry:(rnd()-.5)*26,rz:(rnd()-.5)*16,fs:.35+rnd()*.5,ph:rnd()*6.28});
+    }
+    campo=function(sy){
+      var t=performance.now()/1000;
+      for(var i=0;i<cs.length;i++){var c=cs[i];
+        var x=((c.x0-t*c.v-sy*c.k)%W+W)%W-W/2, u=Math.max(-1.7,Math.min(1.7,x/(vw*.5)));
+        c.el.style.transform='translate3d('+x.toFixed(1)+'px,'+(c.y0+Math.sin(t*c.fs+c.ph)*13).toFixed(1)+'px,'+(c.z-u*u*70).toFixed(1)+'px) rotateY('+(-u*32+c.ry).toFixed(2)+'deg) rotateX('+(Math.sin(t*.5+c.ph)*5).toFixed(2)+'deg) rotateZ('+(c.rz+Math.sin(t*.4+c.ph)*2.5).toFixed(2)+'deg)';
+      }
+    };
+    campo(0);
+    addEventListener('resize',function(){vw=innerWidth});
+  })();
+
+  /* Recetas: voltear */
+  document.querySelectorAll('.flip').forEach(function(f){f.addEventListener('click',function(){
+    f.setAttribute('aria-pressed',f.getAttribute('aria-pressed')!=='true');
+  })});
+
+  /* Rutina casa / gym */
+  var ICO='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9v6M6 6v12M18 6v12M21 9v6M6 12h12"/></svg>';
+  var ICO_C='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v6M7 11h10M12 14l-4 7M12 14l4 7"/></svg>';
+  var RUT={
+    casa:{sub:'32 min · 5 ejercicios · sin equipo',min:32,ico:ICO_C,ej:[['Sentadilla','4×15'],['Zancada alterna','3×12'],['Puente de glúteo','4×20'],['Búlgara en silla','3×10'],['Elevación de talón','3×25']]},
+    gym:{sub:'48 min · 5 ejercicios · barra y máquinas',min:48,ico:ICO,ej:[['Sentadilla con barra','4×8'],['Prensa','3×12'],['Peso muerto rumano','3×10'],['Extensión de cuádriceps','3×15'],['Curl femoral','3×12']]}
+  };
+  var seg=0, timer;
+  function rutina(m){
+    var r=RUT[m];
+    $('f-sub').textContent=r.sub;
+    $('f-lista').innerHTML=r.ej.map(function(e,i){return '<li style="animation-delay:'+(i*50)+'ms">'+r.ico+'<span>'+e[0]+'</span><b>'+e[1]+'</b></li>'}).join('');
+    $('m-casa').setAttribute('aria-pressed',m==='casa'); $('m-gym').setAttribute('aria-pressed',m==='gym');
+    seg=r.min*60; reloj();
+  }
+  function reloj(){ var m=Math.floor(seg/60), s=seg%60; $('reloj').textContent=m+':'+(s<10?'0':'')+s; }
+  $('m-casa').addEventListener('click',function(){rutina('casa')});
+  $('m-gym').addEventListener('click',function(){rutina('gym')});
+  rutina('casa');
+  if(!quieto) timer=setInterval(function(){ seg=seg>0?seg-1:RUT.casa.min*60; reloj(); },1000);
+
+  /* Cuenta regresiva al próximo lunes real */
+  function dos(n){return (n<10?'0':'')+n}
+  function cuenta(){
+    var a=new Date();
+    if(a.getDay()===1){ $('fin-titulo').innerHTML='Hoy es lunes. <em class="s">Empieza.</em>'; $('cuenta').hidden=true; return; }
+    var l=new Date(a); l.setDate(a.getDate()+((8-a.getDay())%7||7)); l.setHours(0,0,0,0);
+    var t=Math.max(0,Math.floor((l-a)/1000));
+    $('c-d').textContent=Math.floor(t/86400); $('c-h').textContent=dos(Math.floor(t%86400/3600));
+    $('c-m').textContent=dos(Math.floor(t%3600/60)); $('c-s').textContent=dos(t%60);
+  }
+  cuenta(); setInterval(cuenta,1000);
+
+  /* La píldora llena la semana conforme bajas */
+  var dias=$('dias').children;
+  function semana(){
+    var max=document.documentElement.scrollHeight-innerHeight, n=max>0?Math.ceil(scrollY/max*7):0;
+    for(var i=0;i<7;i++) dias[i].className=i<n?'on':'';
+  }
+  addEventListener('scroll',semana,{passive:true}); semana();
+
+  /* Lista de espera: demo, no guarda nada */
+  $('lista').addEventListener('submit',function(e){
+    e.preventDefault();
+    var c=$('correo');
+    $('ok').textContent=c.checkValidity()&&c.value?'Anotado. Esto es una demo: todavía no guardamos correos.':'Escribe un correo válido para avisarte.';
+  });
+})();
+</script>
+</body>
+</html>
